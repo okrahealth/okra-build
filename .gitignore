@@ -1,3 +1,14 @@
 *~
 __pycache__
 .Python
+
+# cloud credentials
+*ba78*.json
+
+# Terraform files
+.terraform
+terraform.tfstate
+terraform.tfvars
+*.tfstate*
+terraform-provider*v*
+current.plan
