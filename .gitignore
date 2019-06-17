@@ -12,3 +12,9 @@ terraform.tfvars
 *.tfstate*
 terraform-provider*v*
 current.plan
+
+# asdf version manager
+.tool-versions
+
+# don't commit data files
+*.json
