@@ -1,4 +1,4 @@
-package xmlparser
+package pypidata
 
 import (
 	"encoding/xml"
@@ -30,6 +30,7 @@ type Url struct {
 	Loc     string   `xml:"loc"`
 }
 
+// fetch the sitemap containing multiple urls pointing to python projects
 func FetchSitemaps(url string) SitemapIndex {
 	var sitemapIndex SitemapIndex
 	resp, err := http.Get(url)
@@ -42,6 +43,7 @@ func FetchSitemaps(url string) SitemapIndex {
 	return sitemapIndex
 }
 
+// fetch the urls to the actual python projects themselves
 func FetchUrlSets(si SitemapIndex) []Urlset {
 	urls := []string{}
 	for i := 0; i < len(si.Sitemaps); i++ {
@@ -79,6 +81,7 @@ func SaveProjectJSON(projects map[string]string) {
 	}
 }
 
+// get python name and its associated url for downloading json data
 func GetProjectNameAndUrls(urlSets []Urlset) map[string]string {
 	projects := map[string]string{}
 	for i := 0; i < len(urlSets); i++ {

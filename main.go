@@ -1,12 +1,12 @@
 package main
 
 import "fmt"
-import "github.com/okrahealth/okra-build/xmlparser"
+import "github.com/okrahealth/okra-build/pypidata"
 
 func main() {
 	fmt.Println("Starting downloads...")
-	siteMapIndex := xmlparser.FetchSitemaps("https://pypi.org/sitemap.xml")
-	urlSets := xmlparser.FetchUrlSets(siteMapIndex)
-	projectMap := xmlparser.GetProjectNameAndUrls(urlSets)
-	xmlparser.SaveProjectJSON(projectMap)
+	siteMapIndex := pypidata.FetchSitemaps("https://pypi.org/sitemap.xml")
+	urlSets := pypidata.FetchUrlSets(siteMapIndex)
+	projectMap := pypidata.GetProjectNameAndUrls(urlSets)
+	pypidata.SaveProjectJSON(projectMap)
 }
